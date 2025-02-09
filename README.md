@@ -1,3 +1,22 @@
+### 1. Install Hyprland and other helpful gui applications
+
+```
+sudo pacman -S hyprland firefox dolphin kitty wofi waybar hyprpolkitagent grim kitty qt5-wayland qt6-wayland slurp xdg-desktop-portal-hyprland xdg-utils xorg-xwayland vlc
+
+paru -S wlogout
+```
+
+Set this line in your hyprland config:
+
+---
+
+exec-once = systemctl --user start hyprpolkitagent
+
+---
+
+https://wiki.archlinux.org/title/XDG_MIME_Applications
+
+
 ### 1. Dark Mode
 	#####Dark mode
 	This is a quick and easy dark mode using the adwaita theme, [Read More](https://wiki.archlinux.org/title/Dark_mode_switching)
