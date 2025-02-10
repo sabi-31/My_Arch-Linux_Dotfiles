@@ -52,3 +52,5 @@ https://wiki.archlinux.org/title/XDG_MIME_Applications
 ### 11. kitty
 	[SSH Issue](https://wiki.archlinux.org/title/Kitty#Terminal_issues_with_SSH)
 ### Plymouth
+### Clipboard manager
+HDR
