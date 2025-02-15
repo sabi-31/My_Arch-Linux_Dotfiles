@@ -1,7 +1,20 @@
-### 1. Install Hyprland and other helpful gui applications
+This is for me to store my own dotfiles, plus also a guide if anyone is interested.
+
+The stuff is do here is an immediate follow up to my [Arch Linux Install guide](https://github.com/sabi-31/My_Perfect_Arch-linux). If you did those steps first, everything here will work for you.
+
+If you didn't, I will try to point out the differences if any for other distros. But the main goal of this is to get a good looking and functional Hyprland Desktop Experience:
+
+1. Window Manager - Hyprland
+2. Terminal Emulator - Kitty
+3. Shell - ZSH
+4. File Browser - Dolphin
+5. Browser - Firefox
+6. Main Font - JetbrainsMono Nerd Font
+
+### 1. Install Hyprland related applications
 
 ```
-sudo pacman -S hyprland firefox dolphin kitty wofi waybar hyprpolkitagent grim kitty qt5-wayland qt6-wayland slurp xdg-desktop-portal-hyprland xdg-utils xorg-xwayland vlc
+sudo pacman -S hyprland firefox dolphin kitty wofi waybar hyprpolkitagent grim kitty qt5-wayland qt6-wayland slurp xdg-desktop-portal-hyprland xdg-utils xorg-xwayland vlc zsh ttf-jetbrains-mono-nerd
 
 paru -S wlogout
 ```
@@ -17,21 +30,13 @@ exec-once = systemctl --user start hyprpolkitagent
 https://wiki.archlinux.org/title/XDG_MIME_Applications
 
 
-### 1. Dark Mode
-	#####Dark mode
-	This is a quick and easy dark mode using the adwaita theme, [Read More](https://wiki.archlinux.org/title/Dark_mode_switching)
+### 2. Configure the shell
 	
-	```
-	sudo pacman -S gnome-themes-extra
-	paru -S qt5-adwaita-git qt6-adwaita-git
-	export GTK_THEME=Adwaita:dark
-	export GTK2_RC_FILES=/usr/share/themes/Adwaita-dark/gtk-2.0/gtkrc
-	export QT_STYLE_OVERRIDE=Adwaita-Dark
-	```
-	
+	1. Install Oh-my-zsh
+	2. Install Extensions
+	3. Make changes to your .zshrc
 
-### 2. ZSH
-### 3. Splash Image
+### 3. Splash Image - Arch with Unified Kernel Images Only
 	
 	```
 	sudo pacman -S imagemagick
