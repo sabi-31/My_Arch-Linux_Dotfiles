@@ -50,14 +50,19 @@
 
 4. SDDM
 
-    Reference -> [https://github.com/Keyitdev/sddm-astronaut-theme](https://github.com/Keyitdev/sddm-astronaut-theme)
+    Credits To -> [https://github.com/Keyitdev/sddm-astronaut-theme](https://github.com/Keyitdev/sddm-astronaut-theme)
     
     ```
-    sudo pacman --noconfirm --needed -S sddm qt6-svg qt6-virtualkeyboard qt6-multimedia-ffmpeg
+    mkdir /etc/sddm.conf.d
+    touch /etc/sddm.conf.d/virtualkbd.conf
     sh -c "$(curl -fsSL https://raw.githubusercontent.com/keyitdev/sddm-astronaut-theme/master/setup.sh)"
     ```
 
-    I had to create the folder and file - /etc/sddm.conf.d/virtualkbd.conf
+    When you run, the script, selected the optins to update the dependencies, download the repo, and copy the files (/usr/share/sddm/themes).
+
+    After that, use the script options to select a theme. This is updated in the file (/etc/sddm.conf) which points to the astronaut theme folder, and the specific theme is referenced in the (/usr/share/sddm/themes/sddm-astronaut-theme/metadata.desktop) file.
+
+    Once the theme is set, and the files are copied over, you can copy the setup.sh file and use it in the future to change themes. I have a stripped down version of it in assets/SDDM folder. 
 
 
 5. rEFInd
@@ -112,6 +117,13 @@
 
 13. Firefox
     1. New Tab
+    
+    I like using an extension for new tabs, called [Mtab](https://addons.mozilla.org/en-US/firefox/addon/mtab/), that has really some good aesthetics. You can have the same by copying my config and wallpapers from assets/Firefox folder.
+
+    ```
+
+    ```
+
     2. Css
 
 14. Hyprland - Advanced
@@ -162,3 +174,12 @@
 	```
 	echo '--ozone-platform=wayland' > ~/.config/code-flags.conf
 	```
+
+20. Miscellaneous
+    1. 'go' folder in home.
+        If you install an AUR application, that uses golang as a dependency, you may see a 'go' folder in your home directory. This may be annoying for some (me included), as you cannot remove this directory directly without breaking something. An easy fix is to create a .binaries folder in home, move the go folder there, and update go path variables to point there
+        ```
+        mkdir ~/.binaries
+        mv ~/go ~/.binaries
+        go env -w GOPATH=~/.binaries
+        ```
