@@ -29,6 +29,12 @@
 	Then reboot. SDDM should start up and allow you to login into Hyprland.
     > Choose the uwsm-manager option, it's the default and recommended one.
 
+<br>
+
+---
+
+<br>
+
 2. Shell
     ```
     sudo pacman -S zsh ttf-jetbrains-mono-nerd
@@ -37,6 +43,12 @@
     1. Install Oh-my-zsh
 	2. Install Extensions
 	3. Make changes to your .zshrc -> fastfetch
+
+<br>
+
+---
+
+<br>
 
 3. Hyprland - Basic
 
@@ -47,6 +59,12 @@
     exec-once = systemctl --user start hyprpolkitagent
 
     ---
+
+<br>
+
+---
+
+<br>
 
 4. SDDM
 
@@ -64,14 +82,62 @@
 
     Once the theme is set, and the files are copied over, you can copy the setup.sh file and use it in the future to change themes. I have a stripped down version of it in assets/SDDM folder. 
 
+<br>
+
+---
+
+<br>
 
 5. rEFInd
 
+<br>
+
+---
+
+<br>
+
 6. Kitty
 
-7. Dolphin
+    The main config file for kitty is '.config/kitty/kitty.conf'
+
+    Instead of editing this directly, I prefer to create a custom.conf file and reference it in the main kitty.conf file
+
+    ```
+    touch ~/.config/kitty/custom.conf
+    echo 'include custom.conf' >> ~/.config/kitty/kitty.conf
+    ```
+
+    For transparency and blur:
+    ```
+    echo -e 'background_opacity 0.8 \nbackground_blur 1' > ~/.config/kitty/custom.conf
+    ```
+
+    To resovle SSH x-term issues, add these lines to your .zshrc:
+    ```
+    [[ "$TERM" == "xterm-kitty" ]]
+    export EDITOR=/usr/bin/vim
+    ```
+
+    To change the font, run:
+    ```
+    kitten choose-fonts
+    ```
+
+<br>
+
+---
+
+<br>
+
+1. Dolphin
 
     MIME file Associations
+
+<br>
+
+---
+
+<br>
 
 8. Wallpapers
 
@@ -95,16 +161,33 @@
     ```
     
     ```
+<br>
 
-9. Bar
+---
+
+<br>
+
+9. Status Bar
     ```
     sudo pacman -S waybar
     ```
+
+<br>
+
+---
+
+<br>
 
 10. App Launcher
     ```
     sudo pacman -S wofi
     ```
+
+<br>
+
+---
+
+<br>
 
 11. Splash Image
 
@@ -113,7 +196,19 @@
     magick in.png -type truecolor put.bmp
     ```
 
+<br>
+
+---
+
+<br>
+
 12. Themes
+
+<br>
+
+---
+
+<br>
 
 13. Firefox
     1. New Tab
@@ -126,10 +221,22 @@
 
     2. Css
 
+<br>
+
+---
+
+<br>
+
 14. Hyprland - Advanced
     1. Notification Daemon
     2. Fractional Scaling
     3. Extensions
+
+<br>
+
+---
+
+<br>
 
 15. Logout Menu
     ```
@@ -150,14 +257,38 @@
     }
     ```
 
+<br>
+
+---
+
+<br>
+
 16. Clipboard Manager
 
+<br>
+
+---
+
+<br>
+
 17. [Night Light](https://wiki.archlinux.org/title/Redshift)
+
+<br>
+
+---
+
+<br>
 
 18. [Screenshot]((https://www.youtube.com/watch?v=J1L1qi-5dr0))
     ```
     sudo pacman -S grim slurp
     ```
+
+<br>
+
+---
+
+<br>
 
 19. IDE
     1.  Neovim
@@ -175,8 +306,15 @@
 	echo '--ozone-platform=wayland' > ~/.config/code-flags.conf
 	```
 
+<br>
+
+---
+
+<br>
+
 20. Miscellaneous
-    1. 'go' folder in home.
+    1. 'go' folder in home:
+
         If you install an AUR application, that uses golang as a dependency, you may see a 'go' folder in your home directory. This may be annoying for some (me included), as you cannot remove this directory directly without breaking something. An easy fix is to create a .binaries folder in home, move the go folder there, and update go path variables to point there
         ```
         mkdir ~/.binaries
