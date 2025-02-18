@@ -82,6 +82,14 @@
 
     Once the theme is set, and the files are copied over, you can copy the setup.sh file and use it in the future to change themes. I have a stripped down version of it in assets/SDDM folder. 
 
+
+    Creating your own SDDM theme:
+    1. wallpapers
+    2. fonts
+    3. icons
+    4. configure theme.conf
+    5. Create Script to change and preview themes
+
 <br>
 
 ---
@@ -229,6 +237,21 @@
 
 14. Hyprland - Advanced
     1. Notification Daemon
+        ```
+        sudo pacman -S swaync
+        ```
+
+        Add this to hyprland.conf
+        ```
+        exec-once = uwsm app -- swaync
+        ```
+
+        Copy over swaync's config files to .config/swaync:
+        ```
+        mkdir .config/swaync
+        cp /etc/xdg/swaync/config.json /etc/xdg/swaync/style.css .config/swaync
+        ```
+        
     2. Fractional Scaling
     3. Extensions
 
@@ -281,8 +304,33 @@
 
 18. [Screenshot]((https://www.youtube.com/watch?v=J1L1qi-5dr0))
     ```
-    sudo pacman -S grim slurp
+    sudo pacman -S hyprpicker
+    paru -S hyprshot
     ```
+    
+    >Hyprshot will also send a notification, dependencies are libnotify and a notification daemon (swaync in this case)
+
+    Usage:
+    ```
+    hyprshot -m window   -> Click to screenshot any window
+    hyprshot -m region   -> Select region
+
+    ```
+
+    Screenshots are saved by default in the ~/Pictures directory. 
+
+    To not save pictures, use:
+    ```
+    hyprshot -m region --clipboard-only
+    ```
+
+
+    Binds:
+    ```
+    bind = $mainMod Shift, PRINT, exec, hyprshot -m window --clipboard-only --freeze
+    bind = $mainMod Shift, S, exec, hyprshot -m region --clipboard-only --freeze
+    ```
+
 
 <br>
 
